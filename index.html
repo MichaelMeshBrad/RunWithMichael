@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fueled by Focus (and Chaos) – Michael Holroyd Runs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #ff6f61;
+            color: white;
+            padding: 2rem 1rem;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .hero {
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+        .story {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+        }
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #1e90ff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .countdown {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+        }
+        .qr {
+            margin: 2rem 0;
+        }
+        footer {
+            background: #333;
+            color: #eee;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fueled by Focus (and Chaos)</h1>
+        <p>Michael Holroyd Runs the London Marathon for Autistica</p>
+    </header>
+    <div class="hero">
+        <img src="fundraiser_hero_image_resized.jpg" alt="Michael and his children" style="width: 100%; border-radius: 12px;">
+    </div>
+    <div class="story">
+        <p>In April 2026, I’ll be running the London Marathon in support of Autistica – the UK’s leading autism and neurodiversity research charity.</p>
+        <p>I’m autistic and have ADHD, and I’m also a proud dad to two brilliant neurodivergent kids – my daughter is autistic and my son has ADHD. This cause is personal, and every mile I run will be for them – and for everyone who sees the world a little differently.</p>
+        <a href="https://2026tcslondonmarathon.enthuse.com/pf/michael-holroyd" class="button" target="_blank">Donate Now</a>
+    </div>
+    <div class="countdown" id="countdown">
+        Marathon Countdown: Loading...
+    </div>
+    <div class="qr">
+        <p>Or scan to donate:</p>
+        <img src="michael_holroyd_qr.png" alt="Donate QR Code" width="200">
+    </div>
+    <footer>
+        &copy; 2025 Michael Holroyd | Supporting Autistica
+    </footer>
+    <script>
+        const marathonDate = new Date("2026-04-26T09:00:00");
+        const countdownEl = document.getElementById('countdown');
+        function updateCountdown() {
+            const now = new Date();
+            const diff = marathonDate - now;
+            if (diff <= 0) {
+                countdownEl.innerText = "It's Marathon Day!";
+                return;
+            }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            countdownEl.innerText = `Marathon Countdown: ${days} days, ${hours} hours, ${minutes} minutes`;
+        }
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+    </script>
+</body>
+</html>
