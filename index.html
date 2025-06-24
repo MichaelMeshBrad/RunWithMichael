@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <title>Fueled by Focus (and Chaos) – Michael Holroyd Runs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Michael Holroyd is running the 2026 London Marathon in support of Autistica – the UK’s leading autism research and campaigning charity.">
+    <meta name="keywords" content="Autism, ADHD, Neurodiversity, London Marathon, Autistica, Fundraising, Michael Holroyd">
+    <meta name="author" content="Michael Holroyd">
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-            color: #333;
+            background: linear-gradient(to right, #00b2ff, #e6f7ff);
+            color: #002d5a;
             margin: 0;
             padding: 0;
             text-align: center;
         }
         header {
-            background: #ff6f61;
+            background: #0066cc;
             color: white;
             padding: 2rem 1rem;
         }
@@ -34,7 +37,7 @@
         .button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: #1e90ff;
+            background: #0066cc;
             color: white;
             text-decoration: none;
             font-weight: bold;
@@ -49,7 +52,7 @@
             margin: 2rem 0;
         }
         footer {
-            background: #333;
+            background: #002d5a;
             color: #eee;
             padding: 1rem;
             font-size: 0.9rem;
@@ -92,9 +95,10 @@
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((diff / 1000 / 60) % 60);
-            countdownEl.innerText = `Marathon Countdown: ${days} days, ${hours} hours, ${minutes} minutes`;
+            const seconds = Math.floor((diff / 1000) % 60);
+            countdownEl.innerText = "Marathon Countdown: " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
         }
-        setInterval(updateCountdown, 60000);
+        setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
 </body>
