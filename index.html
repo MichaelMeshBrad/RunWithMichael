@@ -1,12 +1,127 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; URL='https://2026tcslondonmarathon.enthuse.com/pf/michael-holroyd'" />
-    <meta name="robots" content="noindex">
+    <title>Michael Holroyd – Running the London Marathon for Autistica</title>
+    <meta name="description" content="Michael Holroyd is running the 2026 TCS London Marathon to raise funds for Autistica, the UK's leading autism research charity. Support his journey and donate today.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Michael Holroyd – London Marathon 2026 for Autistica">
+    <meta property="og:description" content="Proudly neurodivergent, Michael is running for Autistica to support research into autism and neurodiversity.">
+    <meta property="og:image" content="family-optimised.jpg">
+    <meta property="og:url" content="https://runwithmichael.co.uk">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        body {font-family: Arial, sans-serif;margin:0;padding:0;background:#ffffff;color:#2B50A1;}
+        header {background:#2B50A1;color:#fff;padding:40px 20px;text-align:center;}
+        .hero {background:#2B50A1;color:#fff;padding:60px 20px;text-align:center;}
+        .hero h1 {font-size:2.2em;}
+        .content {padding:40px 20px;max-width:900px;margin:auto;}
+        .button {display:inline-block;background:#EF5DA8;color:#fff;padding:15px 30px;font-size:1.2em;text-decoration:none;border-radius:8px;margin:20px 0;}
+        .logos {display:flex;justify-content:center;gap:20px;margin:30px 0;}
+        .logos img {height:60px;}
+        .qr-section,.photo-section {text-align:center;margin-top:40px;}
+        .photo-section img {max-width:100%;height:auto;border-radius:10px;}
+        .qr-section img {width:200px;height:auto;}
+        .countdown {font-size:1.4em;font-weight:bold;text-align:center;margin:30px 0;color:#EF5DA8;}
+        footer {background:#f4f4f4;color:#2B50A1;text-align:center;padding:20px;}
+    
+.hero-img{
+    display:block;
+    margin:0 auto 20px;
+    max-width:300px;
+    width:100%;
+    height:auto;
+    border-radius:8px;
+}
+    </style>
+    <script>
+        // Live countdown to 26 April 2026, 09:00 UK time
+        document.addEventListener('DOMContentLoaded', function () {
+            const targetDate = new Date('2026-04-26T08:00:00Z'); // 09:00 BST is 08:00 UTC
+            const el = document.getElementById('countdown');
+            function updateCountdown() {
+                const now = new Date();
+                const diff = targetDate - now;
+                if (diff <= 0) {
+                    el.textContent = '🏁 It’s Marathon Day!';
+                    clearInterval(interval);
+                    return;
+                }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const mins = Math.floor((diff / (1000 * 60)) % 60);
+                el.textContent = `📅 ${days} Days to Marathon Day!`;
+            }
+            updateCountdown();
+            const interval = setInterval(updateCountdown, 60000); // update every minute
+        });
+    </script>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="https://2026tcslondonmarathon.enthuse.com/pf/michael-holroyd">click here to continue</a>.</p>
+    <header>
+        <h1>Running the London Marathon 2026</h1>
+        <p>For Autistica – The UK's leading autism research charity</p>
+    <p><strong>Sunday, April 26th 2026</strong></p>
+    </header>
+
+    <div class="hero">
+        <img src="michael-hero.jpg" alt="Michael Holroyd in Scout uniform preparing for the London Marathon" class="hero-img"/><h1>I’m Michael – and I’m running for minds like mine</h1>
+        <p>Autistic • ADHD • Dad • Every mile matters</p>
+        <div id="countdown" class="countdown">Loading countdown…</div>
+        <a href="https://2026tcslondonmarathon.enthuse.com/pf/michael-holroyd" class="button" target="_blank" rel="noopener">Donate Now</a>
+    </div>
+
+    <div class="content">
+        <div class="photo-section">
+            <img src="family-optimised.jpg" alt="Michael with his children who inspire his London Marathon challenge">
+        </div>
+        <h2>Why I’m Running</h2>
+        <p>
+            My daughter is autistic. My son has ADHD. And I’m proudly neurodivergent myself.
+            I’m running for Autistica because I believe in a world that understands and celebrates difference.
+        </p>
+        <p>
+            Autistica funds research that improves the lives of autistic people through science – from mental health to employment, communication, and more.
+        </p>
+        <h2>Get Involved</h2>
+        <ul>
+            <li><strong>Donate:</strong> Every pound makes a difference.</li>
+            <li><strong>Share:</strong> Spread the word on social media.</li>
+            <li><strong>Support:</strong> Even a cheer helps on tough training days!</li>
+        </ul>
+        <div class="logos">
+            <img src="autistica-logo.png" alt="Autistica logo">
+            <img src="tcs-logo.png" alt="TCS London Marathon logo">
+        </div>
+        <div class="qr-section">
+            <p>Scan the QR Code to Donate Instantly:</p>
+            <img src="enthuse_qr.png" alt="QR code linking to Michael's Enthuse fundraising page">
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Run with Michael | Raising funds for Autistica via the TCS London Marathon<br>
+        #RunWithMichael #NeurodiversityMatters #AutisticaMarathon
+    </footer>
+
+<!-- Default Statcounter code for run with michael
+http://runwithmichael.co.uk -->
+<script type="text/javascript">
+var sc_project=13146501; 
+var sc_invisible=1; 
+var sc_security="2aeb6271"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13146501/0/2aeb6271/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
 </body>
 </html>
