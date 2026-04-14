@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Run With Michael – London Marathon 2026 for Autistica</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Michael Holroyd is running the 2026 TCS London Marathon in London for Autistica, raising funds for autism research and neurodiversity support.">
+<meta name="keywords" content="London Marathon 2026, Autistica, TCS London Marathon, charity run London, autism research, neurodiversity, fundraising London, Michael Holroyd">
+<meta name="theme-color" content="#b4e4df">
+<link rel="canonical" href="https://runwithmichael.co.uk">
+
+<meta name="geo.region" content="GB-LND">
+<meta name="geo.placename" content="London">
+<meta name="geo.position" content="51.5074;-0.1278">
+<meta name="ICBM" content="51.5074, -0.1278">
+
+<meta property="og:title" content="Run With Michael – London Marathon 2026 for Autistica">
+<meta property="og:description" content="Running 26.2 miles in London for neurodivergent minds and Autistica.">
+<meta property="og:image" content="family-optimised.jpg">
+<meta property="og:url" content="https://runwithmichael.co.uk">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Run With Michael – London Marathon 2026">
+<meta name="twitter:description" content="Supporting Autistica at the London Marathon 2026.">
+<meta name="twitter:image" content="family-optimised.jpg">
+
+<style>
+:root{
+  --teal:#b4e4df;
+  --pink:#f6c0d0;
+  --white:#ffffff;
+  --text:#1f3b3a;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--white);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+img{max-width:100%;height:auto;display:block;}
+
+header{
+  background:linear-gradient(135deg,var(--teal),var(--pink));
+  text-align:center;
+  padding:20px;
+  font-weight:900;
+}
+
+header h1{margin:0;font-size:2rem;letter-spacing:2px;}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:90vh;
+}
+
+.hero-block{
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-block img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.05);
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2));
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+  padding:20px;
+}
+
+.hero-overlay h2{
+  font-size:2.6rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.hero-overlay p{font-weight:700;margin:10px 0;}
+
+.subline{opacity:0.9;}
+
+.countdown{
+  font-size:2rem;
+  font-weight:900;
+  margin:15px 0;
+  animation:pulse 1.6s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:1;}
+  50%{transform:scale(1.1);opacity:0.85;}
+  100%{transform:scale(1);opacity:1;}
+}
+
+.button{
+  background:var(--pink);
+  color:#1f3b3a;
+  padding:16px 30px;
+  border-radius:14px;
+  font-weight:900;
+  text-decoration:none;
+  margin-top:10px;
+  display:inline-block;
+}
+
+.logos{
+  display:flex;
+  gap:20px;
+  margin-top:15px;
+  justify-content:center;
+  align-items:center;
+}
+
+.logos img{
+  height:65px;
+  width:auto;
+  object-fit:contain;
+}
+
+.progress{
+  max-width:900px;
+  margin:25px auto;
+  background:#eee;
+  border-radius:30px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  width:45%;
+  background:var(--pink);
+  padding:14px;
+  font-weight:900;
+}
+
+.section{
+  max-width:900px;
+  margin:auto;
+  padding:50px 20px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.7s ease;
+}
+
+.section.reveal{opacity:1;transform:translateY(0);}
+
+h2{font-size:1.8rem;font-weight:900;text-transform:uppercase;}
+
+.card{
+  background:#f9f9f9;
+  border-left:6px solid var(--teal);
+  padding:20px;
+  border-radius:14px;
+  margin:15px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+}
+
+.grid div{
+  background:var(--teal);
+  padding:20px;
+  border-radius:14px;
+  font-weight:900;
+}
+
+.sticky-cta{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:var(--pink);
+  text-align:center;
+  padding:14px;
+  font-weight:900;
+  z-index:9999;
+}
+
+.sticky-cta a{
+  text-decoration:none;
+  color:#1f3b3a;
+  font-size:1.1rem;
+}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;}
+  .hero-overlay h2{font-size:1.8rem;}
+  .countdown{font-size:1.5rem;}
+}
+
+</style>
+
+<script>
+window.addEventListener('DOMContentLoaded',()=>{
+  const el=document.getElementById('countdown');
+  const target=new Date('2026-04-26T08:00:00Z');
+
+  function update(){
+    const diff=target-new Date();
+    const days=Math.floor(diff/(1000*60*60*24));
+    el.textContent=days>0?`📅 ${days} DAYS TO GO`:'🏁 MARATHON DAY!';
+  }
+  update();
+  setInterval(update,60000);
+
+  const sections=document.querySelectorAll('.section');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('reveal');
+    });
+  },{threshold:0.15});
+  sections.forEach(s=>obs.observe(s));
+
+  window.addEventListener('scroll',()=>{
+    document.querySelectorAll('.hero-block img').forEach((img,i)=>{
+      img.style.transform=`translateY(${window.scrollY*0.15*(i+1)}px) scale(1.05)`;
+    });
+  });
+});
+</script>
+
+</head>
+<body>
+
+<header>
+  <h1>RUN WITH MICHAEL</h1>
+  <p>London Marathon 2026 • Supporting Autistica</p>
+</header>
+
+<section class="hero">
+
+  <div class="hero-block">
+    <img src="michael-hero.jpg" alt="Michael running">
+    <div class="hero-overlay">
+      <h2>EVERY STEP MATTERS</h2>
+      <p class="subline">Autistic • ADHD • Dad • Running for change</p>
+      <div id="countdown" class="countdown">Loading...</div>
+      <a class="button" href="https://2026tcslondonmarathon.enthuse.com/pf/michael-holroyd">❤️ DONATE NOW</a>
+    </div>
+  </div>
+
+  <div class="hero-block">
+    <img src="family-optimised.jpg" alt="Family inspiration">
+    <div class="hero-overlay">
+      <h2>THIS IS PERSONAL</h2>
+      <p class="subline">My family is my reason</p>
+      <div class="logos">
+        <img src="autistica-logo.png" alt="Autistica logo">
+        <img src="tcs-logo.png" alt="TCS London Marathon logo">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="progress">
+  <div class="progress-bar">£2,250 raised of £5,000</div>
+</div>
+
+<section class="section">
+  <h2>WHY THIS MATTERS</h2>
+  <div class="card">
+    <p>My daughter is autistic. My son has ADHD. I am neurodivergent myself.</p>
+    <p>This is not just a run. It is a mission.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>YOUR IMPACT</h2>
+  <div class="grid">
+    <div>🧠 Research</div>
+    <div>💼 Employment</div>
+    <div>🗣️ Communication</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>FAQ</h2>
+  <div class="card"><strong>Why are you running?</strong><p>For my family and Autistica.</p></div>
+  <div class="card"><strong>What is Autistica?</strong><p>A UK autism research charity.</p></div>
+</section>
+
+<div class="sticky-cta">
+  <a href="https://2026tcslondonmarathon.enthuse.com/pf/michael-holroyd">❤️ DONATE NOW</a>
+</div>
+
+</body>
+</html>
