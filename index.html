@@ -141,18 +141,60 @@ header h1{margin:0;font-size:2rem;letter-spacing:2px;}
 
 .logo-bar img{height:60px;object-fit:contain;}
 
-.progress{
+.progress-wrap{
   max-width:900px;
-  margin:20px auto;
+  margin:40px auto;
+  padding:24px;
+  background:#ffffff;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.12);
+  border:2px solid rgba(0,0,0,0.05);
+}
+
+.progress-header{
+  display:flex;
+  justify-content:space-between;
+  font-weight:900;
+  font-size:1.1rem;
+  margin-bottom:12px;
+}
+
+.progress{
+  width:100%;
   background:#eee;
-  border-radius:30px;
+  border-radius:40px;
   overflow:hidden;
+  height:30px;
 }
 
 .progress-bar{
-  width:45%;
-  background:var(--pink);
-  padding:14px;
+  height:100%;
+  background:linear-gradient(90deg,#f6c0d0,#ff8fab);
+  border-radius:40px;
+  position:relative;
+  transition:width 0.8s ease;
+}
+
+/* subtle shine effect */
+.progress-bar::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-40%;
+  width:40%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+  animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+  0%{left:-40%;}
+  100%{left:120%;}
+}
+
+.progress-footer{
+  text-align:center;
+  margin-top:12px;
   font-weight:900;
 }
 
@@ -330,8 +372,19 @@ h2{
   <img src="tcs-logo.png" alt="TCS London Marathon logo">
 </div>
 
-<div class="progress">
-  <div class="progress-bar">£1,736 raised of £2,500</div>
+<div class="progress-wrap">
+  <div class="progress-header">
+    <span>£1,930 raised</span>
+    <span>£2,500 goal</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" style="width:77%"></div>
+  </div>
+
+  <div class="progress-footer">
+    77% funded • £570 to go 💪
+  </div>
 </div>
 
 <section class="section" id="step3">
@@ -375,47 +428,32 @@ h2{
 </div>
 
 <script>
-const el=document.getElementById('countdown');
-const target=new Date('2026-04-26T08:00:00Z');
-function update(){const diff=target-new Date();const days=Math.floor(diff/86400000);el.textContent=days>0?`📅 ${days} DAYS TO GO`:'🏁 MARATHON DAY!';}
-update();setInterval(update,60000);
+const el = document.getElementById('countdown');
 
-const sections=document.querySelectorAll('.section');
-const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('reveal')),{threshold:0.15});sections.forEach(s=>obs.observe(s));
+// 09:35 BST = 08:35 UTC
+const target = new Date('2026-04-26T08:35:00Z');
 
-const footer=document.querySelector('.footer');
-const footerObs=new IntersectionObserver(e=>{
-  e.forEach(x=>{
-    if(x.isIntersecting) footer.classList.add('visible');
-  });
-},{threshold:0.2});
-if(footer) footerObs.observe(footer);
+function update() {
+  const now = new Date();
+  const diff = target - now;
 
-const canvas=document.getElementById('confetti-canvas');
-const ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-let pieces=[];
-
-function burst(){
-  for(let i=0;i<120;i++){
-    pieces.push({x:window.innerWidth/2,y:0,vx:(Math.random()-0.5)*6,vy:Math.random()*6,life:100});
+  if (diff <= 0) {
+    el.textContent = '🏁 MARATHON DAY!';
+    return;
   }
-  animate();
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  el.textContent = `📅 ${days}d ${hours}h ${mins}m ${secs}s to go`;
 }
 
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  pieces.forEach(p=>{
-    p.x+=p.vx;p.y+=p.vy;p.vy+=0.1;p.life--;
-    ctx.fillRect(p.x,p.y,4,4);
-  });
-  pieces=pieces.filter(p=>p.life>0);
-  if(pieces.length>0)requestAnimationFrame(animate);
-}
-
-document.getElementById('donateBtn').addEventListener('click',function(){burst();});
+update();
+setInterval(update, 1000);
 </script>
+
 <!-- Default Statcounter code for run with michael
 http://runwithmichael.co.uk -->
 <script type="text/javascript">
@@ -433,5 +471,37 @@ src="https://c.statcounter.com/13146501/0/2aeb6271/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+</script>
+
+<script>
+const footer = document.querySelector('.footer');
+
+const footerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      footer.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+footerObserver.observe(footer);
+</script>
 </body>
 </html>
